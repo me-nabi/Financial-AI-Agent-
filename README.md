@@ -28,11 +28,11 @@ A powerful multi-agent financial intelligence system built with **Phidata** and 
 ## 📸 Screenshots
 
 ### Analyst Recommendations & News Analysis
-![Tesla Analysis](https://raw.githubusercontent.com/yourusername/yourrepo/main/screenshots/tesla-analysis.png)
+![Tesla Analysis](https://github.com/user-attachments/assets/97f143cb-e05b-47cf-9a13-154017827f27)
 *Multi-agent analysis showing TSLA analyst recommendations and latest news with data tables*
 
 ### Real-Time Stock Price Queries
-![Stock Price Query](https://raw.githubusercontent.com/yourusername/yourrepo/main/screenshots/stock-price.png)
+![Stock Price Query](https://github.com/user-attachments/assets/c0beb77c-da26-4ce3-9edb-049a83c0423e)
 *Interactive chat interface querying real-time stock prices for TSLA and TATA*
 
 ## 🔧 Installation
