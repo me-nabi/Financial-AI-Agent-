@@ -18,11 +18,11 @@ A powerful multi-agent financial intelligence system built with **Phidata** and 
 - Streaming responses for real-time feedback
 
 ### 🛠️ Technologies
-- **Phidata Framework**: Multi-agent orchestration and playground
-- **Groq LLM**: Fast inference using `llama-3.1-8b-instant` model
+- **Phidata Framework**: Multi-agent orchestration
+- **Streamlit**: Interactive web interface
+- **Groq LLM**: Fast inference using `llama-3.3-70b-versatile` model
 - **YFinance**: Real-time financial data and stock information
 - **DuckDuckGo**: Web search for latest news and articles
-- **FastAPI + Uvicorn**: Backend API server
 - **Python 3.12**: Modern Python with async support
 
 ## 📸 Screenshots
@@ -40,7 +40,6 @@ A powerful multi-agent financial intelligence system built with **Phidata** and 
 ### Prerequisites
 - Python 3.12 or higher
 - Groq API Key ([Get it here](https://console.groq.com/))
-- Phidata API Key ([Get it here](https://phidata.app/))
 
 ### Setup Steps
 
@@ -67,19 +66,18 @@ pip install -r requirements.txt
 Create a `.env` file in the project root:
 ```env
 GROQ_API_KEY=your_groq_api_key_here
-PHI_API_KEY=your_phi_api_key_here
 ```
 
 ## 🚦 Usage
 
-### Option 1: Run Playground (Web Interface)
+### Option 1: Run Streamlit App (Web Interface)
 
-Start the interactive Phidata Playground:
+Start the interactive Streamlit web interface:
 ```bash
-python playground.py
+streamlit run streamlit_app.py
 ```
 
-Access the web interface at: `http://localhost:7777`
+Access the web interface at: `http://localhost:8501`
 
 ### Option 2: Run CLI Agent
 
@@ -91,9 +89,10 @@ python financial_agent.py
 ## 📁 Project Structure
 
 ```
-FinancialAPP_Agentic_Rag/
+Financial AI Agent/
 ├── financial_agent.py      # CLI multi-agent implementation
-├── playground.py            # Web-based playground interface
+├── streamlit_app.py        # Streamlit web interface
+├── playground.py            # Phidata playground (legacy)
 ├── requirements.txt         # Python dependencies
 ├── pyproject.toml          # Project metadata
 ├── .env                    # Environment variables (API keys)
@@ -103,18 +102,20 @@ FinancialAPP_Agentic_Rag/
 
 ## 🧩 Components
 
+### streamlit_app.py
+Custom Streamlit web interface featuring:
+- Interactive chat interface
+- Agent selection (Multi-Agent, Finance, Web Search)
+- Real-time responses
+- Chat history management
+- Example queries
+- API status monitoring
+
 ### financial_agent.py
 Multi-agent system with team collaboration for CLI usage. Demonstrates:
 - Agent team coordination
 - Streaming responses
 - Combined financial and web search capabilities
-
-### playground.py
-Web-based interactive interface featuring:
-- Phidata Playground integration
-- Real-time chat interface
-- Agent selection and configuration
-- Session management and history
 
 ## 🔑 API Keys Setup
 
@@ -125,27 +126,33 @@ Web-based interactive interface featuring:
 4. Generate a new API key
 5. Add to `.env` file as `GROQ_API_KEY`
 
-### Phidata API Key
-1. Visit [Phidata App](https://phidata.app/)
-2. Sign up or log in
-3. Generate an API key from settings
-4. Add to `.env` file as `PHI_API_KEY`
-
 ## 📊 Example Queries
 
-Try these queries in the playground:
+Try these queries in the Streamlit app:
 
-- "What is the current stock price of NVDA?"
+**US Stocks:**
+- "What is the stock price of NVDA?"
 - "Summarize analyst recommendations for TSLA"
 - "Get the latest news and fundamentals for AAPL"
 - "Compare stock prices of MSFT and GOOGL"
-- "What are the top analyst recommendations for tech stocks?"
 
-## 🎯 Agent Capabilities
+**Indian Stocks (use .NS suffix):**
+- "What is the stock price of TATAMOTORS.NS?"
+- "Show fundamentals for TCS.NS"
+- "Compare INFY.NS and WIPRO.NS"
+- "Get analyst recommendations for RELIANCE.NS"
 
-### Finance AI Agent
-- `get_stock_price()`: Retrieve current stock prices
-- `get_analyst_recommendations()`: Get analyst ratings and recommendations
+### Common Stock Tickers
+
+**US Market** (no suffix needed):
+- AAPL (Apple), MSFT (Microsoft), GOOGL (Google)
+- TSLA (Tesla), NVDA (Nvidia), META (Meta)
+
+**Indian Market** (add .NS for NSE):
+- **TATA Group**: TATAMOTORS.NS, TCS.NS, TATASTEEL.NS, TATAPOWER.NS
+- **IT**: INFY.NS (Infosys), WIPRO.NS, TECHM.NS
+- **Banking**: HDFCBANK.NS, ICICIBANK.NS, SBIN.NS
+- **Other**: RELIANCE.NS, ITC.NS, LT.NS
 - `get_stock_fundamentals()`: Access company fundamentals (PE ratio, market cap, etc.)
 - `get_company_news()`: Fetch latest company-specific news
 
@@ -158,15 +165,15 @@ Try these queries in the playground:
 
 ### Customize Agent Behavior
 
-Edit `playground.py` or `financial_agent.py` to modify:
-- Model selection: Change `id="llama-3.1-8b-instant"` to other Groq models
+Edit `streamlit_app.py` or `financial_agent.py` to modify:
+- Model selection: Change `id="llama-3.3-70b-versatile"` to other Groq models
 - Instructions: Customize agent behavior and output format
 - Tools: Add or remove tools based on requirements
 - Agent names and roles: Personalize agent identities
 
 ### Supported Groq Models
-- `llama-3.1-8b-instant` (Current - fast and efficient)
-- `llama-3.3-70b-versatile`
+- `llama-3.3-70b-versatile` (Current - versatile and powerful)
+- `llama-3.1-8b-instant` (Fast and efficient)
 - Check [Groq Docs](https://console.groq.com/docs/models) for latest models
 
 ## 🐛 Troubleshooting
@@ -178,6 +185,16 @@ Edit `playground.py` or `financial_agent.py` to modify:
 pip install phidata
 ```
 
+**DuckDuckGo Rate Limit (202 Error)**
+- Use the **Finance Agent** instead of Multi-Agent for stock queries
+- The Finance Agent doesn't use web search and has no rate limits
+- Wait a few minutes before using Web Search Agent again
+
+**Invalid Stock Ticker (404 Error)**
+- Indian stocks need `.NS` suffix (e.g., TATAMOTORS.NS, TCS.NS)
+- US stocks don't need any suffix (e.g., AAPL, MSFT)
+- Check ticker spelling on Yahoo Finance website
+
 **API Key Error**
 - Ensure `.env` file exists with valid API keys
 - Verify `python-dotenv` is installed
@@ -185,6 +202,7 @@ pip install phidata
 
 **Model Decommissioned Error**
 - Update model ID in code to a supported model
+- Current recommended: `openai/gpt-4o-mini`
 - Check Groq documentation for current models
 
 ## 🤝 Contributing
