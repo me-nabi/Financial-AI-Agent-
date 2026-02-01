@@ -27,10 +27,10 @@ A powerful multi-agent financial intelligence system built with **Phidata** and 
 
 ## 🎬 Output
 
-### Demo Video
-https://github.com/user-attachments/assets/97f143cb-e05b-47cf-9a13-154017827f27
+### Streamlit Interface (Demo Video)
+https://github.com/user-attachments/assets/f2a1ea40-018d-4130-b911-09b2b9f55b56
 
-### Real-Time Stock Price Queries
+### Real-Time Stock Price Queries(Phidata Platform)
 ![Stock Price Query](https://github.com/user-attachments/assets/c0beb77c-da26-4ce3-9edb-049a83c0423e)
 *Interactive chat interface querying real-time stock prices for TSLA and TATA*
 
