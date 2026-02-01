@@ -25,11 +25,10 @@ A powerful multi-agent financial intelligence system built with **Phidata** and 
 - **DuckDuckGo**: Web search for latest news and articles
 - **Python 3.12**: Modern Python with async support
 
-## 📸 Screenshots
+## 🎬 Output
 
-### Analyst Recommendations & News Analysis
-![Tesla Analysis](https://github.com/user-attachments/assets/97f143cb-e05b-47cf-9a13-154017827f27)
-*Multi-agent analysis showing TSLA analyst recommendations and latest news with data tables*
+### Demo Video
+https://github.com/user-attachments/assets/97f143cb-e05b-47cf-9a13-154017827f27
 
 ### Real-Time Stock Price Queries
 ![Stock Price Query](https://github.com/user-attachments/assets/c0beb77c-da26-4ce3-9edb-049a83c0423e)
